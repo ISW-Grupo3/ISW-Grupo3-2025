@@ -14,6 +14,31 @@ Repositorio de la materia **Ingeniería y Calidad de Software** del **grupo 3**
 * Santiago Arias - **91075**
 * Baudino Martin - **87347**
 
+## Estructura del repositorio
+.
+├── Bibliografía & Papers                
+├── Guías Prácticas          
+├── Templates    
+├── Teóricos                         
+│   ├── clase-00        
+│   ├── clase-01           
+│   ├── clase-02        
+│   ├── clase-03   
+│   ├── ...
+├── Trabajos Investigación  
+│   ├── TP-01-POSTER CIENTIFICO
+│   ├── TP-02-CHARLA TED
+├── Trabajos Prácticos              
+│   ├── TPs Entregables
+│       ├── TP-04-SCM
+│       ├── TP-05-SCM
+│       ├── ...
+│   ├── TPs No Entregables
+│       ├── TP-01
+│       ├── TP-02
+│       ├── ...
+└── README.md                                
+
 ## Temas que se evalúan en el **primer parcial** -> **27/09**
 
 ### Unidad 1 completa (incluye paper No silver bullet)
