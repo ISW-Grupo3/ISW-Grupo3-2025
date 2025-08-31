@@ -1,4 +1,7 @@
-# ISW
+<img width="1536" height="395" alt="ChatGPT Image 31 ago 2025, 20_27_46" src="https://github.com/user-attachments/assets/003f61a1-6233-4c80-8aed-5d1940785932" />
+
+
+# Ingeniería y Calidad de Software
 Repositorio de la materia **Ingeniería y Calidad de Software** del **grupo 3**
 ## Integrantes:
 * Mateo Bringas - **85432**
