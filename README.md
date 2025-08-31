@@ -1,4 +1,4 @@
-<img width="1536" height="395" alt="ChatGPT Image 31 ago 2025, 20_27_46" src="https://github.com/user-attachments/assets/003f61a1-6233-4c80-8aed-5d1940785932" />
+<img width="1536" height="359" alt="ChatGPT Image 31 ago 2025, 20_27_46" src="https://github.com/user-attachments/assets/c97d6a74-d04f-4aec-9067-4606bebbce29" />
 
 
 # Ingeniería y Calidad de Software
