@@ -8,6 +8,14 @@ __pycache__/
 # Ignora el directorio del entorno virtual
 venv/
 env/
+
+# Base de datos SQLite
+*.db
+*.sqlite
+*.sqlite3
+
+# Archivos temporales de prueba
+test_*.db
 .venv/
 .python-version
 .idea/ # Para usuarios de PyCharm y otros IDEs de JetBrains
