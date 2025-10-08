@@ -20,8 +20,8 @@ import traceback
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 try:
-    from gestor_entradas import GestorDeEntradas
-    from database import DatabaseManager
+    from src.gestor_entradas import GestorDeEntradas
+    from src.database import DatabaseManager
 except ImportError as e:
     print(f"Error al importar módulos: {e}")
     print("Asegúrate de que los archivos database.py y gestor_entradas.py estén en el directorio src/")
@@ -184,18 +184,10 @@ class CompraEntradasWindow(QMainWindow):
         # Sección 2: Datos de la visita
         visita_group = self.crear_seccion_visita()
         scroll_layout.addWidget(visita_group)
-        
-        # Sección 3: Visitantes
-        self.visitantes_group = self.crear_seccion_visitantes()
-        scroll_layout.addWidget(self.visitantes_group)
-        
-        # Sección 4: Pago
+
+        # Sección 3: Pago
         pago_group = self.crear_seccion_pago()
         scroll_layout.addWidget(pago_group)
-        
-        scroll.setWidget(scroll_widget)
-        scroll.setWidgetResizable(True)
-        main_layout.addWidget(scroll)
         
         # Botones principales
         botones_layout = QHBoxLayout()
@@ -238,6 +230,14 @@ class CompraEntradasWindow(QMainWindow):
         botones_layout.addWidget(self.btn_comprar)
         
         main_layout.addLayout(botones_layout)
+
+        # Sección 4: Visitantes
+        self.visitantes_group = self.crear_seccion_visitantes()
+        scroll_layout.addWidget(self.visitantes_group)
+        
+        scroll.setWidget(scroll_widget)
+        scroll.setWidgetResizable(True)
+        main_layout.addWidget(scroll)
         
         # Barra de estado (información de disponibilidad)
         self.status_label = QLabel("Cargando información del parque...")
@@ -298,6 +298,8 @@ class CompraEntradasWindow(QMainWindow):
         # Tipo de pase
         self.tipo_pase_combo = QComboBox()
         self.tipo_pase_combo.addItems(["Regular", "VIP"])
+        self.tipo_pase_combo.setStyleSheet("QComboBox { background-color: white; color: #212121; }")
+
         
         layout.addRow("⭐ Tipo de pase:", self.tipo_pase_combo)
         
@@ -333,6 +335,7 @@ class CompraEntradasWindow(QMainWindow):
         self.forma_pago_combo.addItem("Seleccione forma de pago", "")
         self.forma_pago_combo.addItem("💳 Tarjeta de Crédito (Mercado Pago)", "tarjeta")
         self.forma_pago_combo.addItem("💰 Efectivo en Boletería", "efectivo")
+        self.forma_pago_combo.setStyleSheet("QComboBox { background-color: white; color: #212121; }")
         
         layout.addRow("💸 Forma de pago:", self.forma_pago_combo)
         
@@ -506,6 +509,8 @@ def main():
     palette = QPalette()
     palette.setColor(QPalette.Window, QColor(248, 248, 248))
     palette.setColor(QPalette.WindowText, QColor(33, 33, 33))
+    palette.setColor(QPalette.Base, QColor(255, 255, 255))  # Fondo blanco para campos editables
+    palette.setColor(QPalette.Text, QColor(33, 33, 33))     # Texto oscuro
     app.setPalette(palette)
     
     # Crear y mostrar la ventana principal
