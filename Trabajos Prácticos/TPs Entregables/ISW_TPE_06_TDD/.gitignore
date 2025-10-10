@@ -1,0 +1,40 @@
+# Archivos de caché e información de compilación
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Entornos virtuales (MUY IMPORTANTE)
+# Ignora el directorio del entorno virtual
+venv/
+env/
+
+# Base de datos SQLite
+*.db
+*.sqlite
+*.sqlite3
+
+# Archivos temporales de prueba
+test_*.db
+.venv/
+.python-version
+.idea/ # Para usuarios de PyCharm y otros IDEs de JetBrains
+
+# Archivos de distribución y empaquetado
+dist/
+build/
+*.egg-info
+.eggs/
+
+# Bases de datos y archivos de logs (si no son parte del control de versiones)
+*.log
+*.sqlite
+*.db
+
+# Directorios de pruebas de PyTest
+.pytest_cache/
+htmlcov/
+
+# Archivos temporales del sistema operativo
+.DS_Store # macOS
+Thumbs.db # Windows
