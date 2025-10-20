@@ -71,7 +71,13 @@ class VisitanteWidget(QWidget):
     
     def es_valido(self):
         """Valida que los datos del visitante sean correctos"""
-        return bool(self.nombre_edit.text().strip())
+        edad = self.edad_spinbox.value()
+
+        # La edad debe ser mayor o igual que 0
+        if edad <= 0:
+            return False
+
+        return True
 
 
 class PagoSimuladorDialog(QMessageBox):
@@ -111,17 +117,17 @@ class CompraExitosaDialog(QMessageBox):
         self.setIcon(QMessageBox.Information)
         
         mensaje = f"""
-✅ {self.resultado['mensaje']}
+            ✅ {self.resultado['mensaje']}
 
-📋 Detalles de la compra:
-• ID de Compra: {self.resultado['compra_id']}
-• Cantidad de entradas: {self.resultado['cantidad_entradas']}
-• Fecha de visita: {self.resultado['fecha_visita']}
+            📋 Detalles de la compra:
+            • ID de Compra: {self.resultado['compra_id']}
+            • Cantidad de entradas: {self.resultado['cantidad_entradas']}
+            • Fecha de visita: {self.resultado['fecha_visita']}
 
-📧 Se ha enviado un email de confirmación con todos los detalles.
+            📧 Se ha enviado un email de confirmación con todos los detalles.
 
-¡Gracias por elegirnos para su visita al parque!
-        """
+            ¡Gracias por elegirnos para su visita al parque!
+                    """
         
         self.setText(mensaje)
         self.addButton("Cerrar", QMessageBox.AcceptRole)
@@ -433,6 +439,7 @@ class CompraEntradasWindow(QMainWindow):
     
     def realizar_compra(self):
         """Procesa la compra de entradas"""
+        print("Iniciando proceso de compra...")
         try:
             # Recopilar datos del formulario
             email = self.email_combo.currentText().strip()
@@ -440,7 +447,6 @@ class CompraEntradasWindow(QMainWindow):
             cantidad = self.cantidad_spinbox.value()
             tipo_pase = self.tipo_pase_combo.currentText()
             forma_pago = self.forma_pago_combo.currentData()
-            
             # Validar visitantes
             visitantes_datos = []
             for widget in self.visitantes_widgets:
@@ -463,15 +469,10 @@ class CompraEntradasWindow(QMainWindow):
                 f"Forma de pago: {self.forma_pago_combo.currentText()}",
                 QMessageBox.Yes | QMessageBox.No
             )
-            
             if confirmacion != QMessageBox.Yes:
                 return
-            
             # Simular proceso de pago
             pago_dialog = PagoSimuladorDialog(forma_pago, total_estimado, self)
-            if pago_dialog.exec_() != QMessageBox.Accepted:
-                return
-            
             # Realizar la compra
             resultado = self.gestor.comprar_entradas(
                 fecha_visita=fecha_visita,
@@ -483,6 +484,7 @@ class CompraEntradasWindow(QMainWindow):
             )
             
             # Mostrar resultado exitoso
+            print(resultado)
             CompraExitosaDialog(resultado, self).exec_()
             
             # Limpiar formulario y actualizar disponibilidad

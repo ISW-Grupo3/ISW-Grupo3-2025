@@ -48,7 +48,7 @@ class DatabaseManager:
                 CREATE TABLE IF NOT EXISTS visitantes (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     compra_id INTEGER NOT NULL,
-                    nombre TEXT NOT NULL,
+                    nombre TEXT,
                     edad INTEGER NOT NULL,
                     FOREIGN KEY (compra_id) REFERENCES compras (id)
                 )
