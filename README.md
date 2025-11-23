@@ -64,3 +64,6 @@ Repositorio de la materia **Ingeniería y Calidad de Software** del **grupo 3**
 - Calidad de Producto: Planificación de pruebas para el software- Niveles y tipos de pruebas para el software.
 - Técnicas y herramientas para probar software.
 - Técnicas y Herramientas para la realización de revisiones técnicas del software.
+
+
+## Linea Base --> Los viernes, luego de la clase del teorico para tener actualizado y al dia el repositorio.
